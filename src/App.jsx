@@ -1,6 +1,15 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Link } from "react-router-dom";
+
 import AddSong from './AddSong.jsx'
+
+import Home from './routes/Home';
+import Artists from './routes/Artists';
+import Genre from './routes/Genre';
+
 import Table from './components/Table.jsx'
 import PopupForm from './components/PopupForm.jsx'
 
@@ -52,9 +61,34 @@ function App() {
 
   return (
     <>
-      <h1>Test front</h1>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Inicio</Link>
+              </li>
+              <li>
+                <Link to="/artists">Artistas</Link>
+              </li>
+              <li>
+                <Link to="/genre">Género</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/artists" element={<Artists />} />
+            <Route path="/genre" element={<Genre />} />
+          </Routes>
+        </div>
+      </Router>
+
       <button onClick={handleOpen}>Add song</button>
+
       <PopupForm open={open} onClose={handleClose} />
+
       <Table songs={songs} onEdit={onEdit} onDelete={onDelete} />
       {editingSong &&
         <PopupForm open={true} onClose={() => setEditingSong(null)} song={editingSong} />
