@@ -10,4 +10,4 @@ function Artists() {
   );
 }
 
-export default Artists;
+export default Artists
