@@ -41,6 +41,9 @@
   color: #888;
 }
 
+
+/* -- HOME -- */
+
 nav ul {
   list-style: none;
   display: flex;
@@ -49,6 +52,30 @@ nav ul {
 
   gap: 50px;
 }
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.song-card {
+  display: flex;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: rgb(30, 30, 30);
+}
+
+.song-details {
+  /* text-align: left; */
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: initial;
+}
+
+/* -- AÑADIR -- */
 
 .btnAdd {
   margin-bottom: 30px;

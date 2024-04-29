@@ -1,66 +1,35 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios';
 import './App.css'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Link } from "react-router-dom";
 
 import AddSong from './AddSong.jsx'
+import SongCard from './components/SongCard.jsx'
 
 import Home from './routes/Home';
 import Artists from './routes/Artists';
 import Genre from './routes/Genre';
 import Add from './routes/Add';
 
-//import SongCard from './components/SongCard';
-import Table from './components/Table.jsx'
-import PopupForm from './components/PopupForm.jsx'
-
 function App() {
+
+  const [open, setOpen] = useState(false);
+  const [songs, setSongs] = useState([]); // Declarar la variable songs en el estado
+
+  const getSongs = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/songs');
+      setSongs(response.data);
+    } catch (error) {
+      console.error('Error fetching songs:', error);
+    }
+  };
   
-  // const [open, setOpen] = useState(false);
-  // const [songs, setSongs] = useState([]);
-  // const [editingSong, setEditingSong] = useState(null);
-
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
-  // const handleClose = () => {
-  //   getSongs();
-  //   setOpen(false);
-  // };
-
-  // // Importamos las canciones desde la bd
-  // const getSongs = async () => {
-  //   const res = await fetch('http://localhost:3000/songs');
-  //   const data = await res.json();
-  //   setSongs(data);
-  // }
-
-  // // Eliminamos una canción por su id
-  // const deleteSong = async (id) => {
-  //   await fetch(`http://localhost:3000/songs/${id}`, {
-  //     method: 'DELETE'
-  //   });
-  //   getSongs();
-  // }
-
-  // const onEdit = (id) => {
-  //   console.log('Edit', id);
-  //   setEditingSong(id);
-  // }
-
-  // const onDelete = (id) => {
-  //   console.log('Delete', id);
-  //   deleteSong(id);
-  // }
-
-  // useEffect(() => {
-  //   getSongs();
-  // }, []);
-
-  // useEffect(() => {
-  //   getSongs();
-  // }, [editingSong]);
+  useEffect(() => {
+    getSongs();
+  }, []);
 
   return (
     <>
@@ -92,14 +61,12 @@ function App() {
         </div>
       </Router>
 
-      {/* <button onClick={handleOpen}>Add song</button>
+      <div className="song-list">
+        {songs.map(song => (
+          <SongCard key={song._id} song={song} />
+        ))}
+      </div>
 
-      <PopupForm open={open} onClose={handleClose} />
-
-      <Table songs={songs} onEdit={onEdit} onDelete={onDelete} />
-      {editingSong &&
-        <PopupForm open={true} onClose={() => setEditingSong(null)} song={editingSong} />
-      } */}
     </>
   )
 }
