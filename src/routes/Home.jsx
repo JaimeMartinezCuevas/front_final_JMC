@@ -5,7 +5,10 @@ function Home() {
     
     return (
         <>
-        <h1>TEST HOME</h1>
+        <div className="header-title">
+            <h1>RADIO NEW VEGAS</h1>
+            <p>¡Explora la biblioteca musical completa de todas las canciones, melodías y baladas que alguna vez han resonado por el yermo!</p>
+        </div>
         </>
     )
 }

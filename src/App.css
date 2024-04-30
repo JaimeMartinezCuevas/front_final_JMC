@@ -1,5 +1,9 @@
+* {
+  scroll-behavior: smooth;
+}
+
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -42,16 +46,95 @@
 }
 
 
-/* -- HOME -- */
+/* -- NAVEGADOR -- */
+
+nav {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #343eff;
+}
+
+nav img {
+  max-width: 110px;
+  position: fixed;
+  top: 45px;
+  left: 100px;
+
+  cursor: pointer;
+}
 
 nav ul {
   list-style: none;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
 
+  /* align-items: center; */
+  
   gap: 50px;
 }
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  
+  transition: .3s all ease;
+}
+
+nav ul li a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+nav ul li {
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  padding: 20px 0px;
+  margin: 0px 20px;
+  display: inline-block;
+  position: relative;
+  opacity: 0.75;
+}
+
+nav ul li a:hover {
+  opacity: 1;
+}
+
+nav ul li a::before {
+  transition: 300ms;
+  height: 5px;
+  content: "";
+  position: absolute;
+  background-color: #fff;
+}
+
+nav ul li a::before {
+  width: 0%;
+  bottom: 10px;
+}
+
+nav ul li a:hover::before {
+  width: 100%;
+}
+
+
+/* -- HEADER TEXT -- */
+
+.header-title {
+  text-align: left;
+  margin-top: 60px;
+}
+
+
+/* -- SONG CARD -- */
 
 .song-list {
   display: flex;
@@ -64,6 +147,17 @@ nav ul {
   padding: 30px;
   border-radius: 10px;
   background-color: rgb(30, 30, 30);
+
+  transition: .3s all ease;
+}
+
+.song-card:hover {
+  /* border-color: #646cff; */
+  box-shadow: 0px 8px 0px #343eff;
+}
+
+.video-container {
+  cursor: pointer;
 }
 
 .song-details {
@@ -74,6 +168,45 @@ nav ul {
   align-items: start;
   justify-content: initial;
 }
+
+
+/* -- CURRENTLY PLAYING -- */
+
+.currently-playing-container {
+  margin: 0;
+  padding: 0;
+  
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+}
+
+.currently-playing-container h3 {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+
+  z-index: 10;
+}
+
+.currently-playing-container img {
+  margin: 0;
+  border-radius: 8px;
+  width: 450px;
+  max-height: 150px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(2px);
+}
+
+.currently-playing {
+  padding: 0;
+  border-radius: 8px;
+  background-color: rgb(30, 30, 30);
+  ;
+}
+
 
 /* -- AÑADIR -- */
 

@@ -1,15 +1,20 @@
 import React from 'react';
 import YouTube from 'react-youtube';
 
-//Obtener el ID del video de YouTube desde la URL
-const SongCard = ({ song }) => {
-  const { title, link, artistName, genre } = song;
+const SongCard = ({ song, handlePlay, currentPlaying }) => {
+  const { _id, title, link, artistName, genre } = song;
+
+  const videoId = getYoutubeVideoId(link);
+  //console.log("videoId:", videoId);
 
   return (
-    <>
     <div className="song-card">
       <div className="video-container">
-        <YouTube videoId={getYoutubeVideoId(link)} />
+        {currentPlaying === videoId ? (
+          <YouTube videoId={videoId} />
+        ) : (
+          <img src={`https://img.youtube.com/vi/${videoId}/0.jpg`} alt={title} onClick={() => handlePlay(videoId)} />
+        )}
       </div>
       <div className="song-details">
         <h3>{title}</h3>
@@ -17,7 +22,6 @@ const SongCard = ({ song }) => {
         <p>Genre: {genre}</p>
       </div>
     </div>
-    </>
   );
 };
 
@@ -27,4 +31,4 @@ const getYoutubeVideoId = (url) => {
   return match && match[2] ? match[2] : null;
 };
 
-export default SongCard
+export default SongCard;
