@@ -12,7 +12,8 @@ function Genre({ songs, handlePlay, currentPlaying }) {
 
   return (
     <div>
-      <h1>Género</h1>
+      <h1><span className="rotate">⚛</span> GÉNERO <span className="rotate">⚛</span></h1>
+      <p>¿Quieres escuchar nuevas canciones parecidas a tus favoritas?</p>
 
       <input className="search-bar"
         type="text"

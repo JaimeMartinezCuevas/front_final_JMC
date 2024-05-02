@@ -5,8 +5,8 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-import AddSong from './AddSong.jsx';
-import SongCard from './components/SongCard.jsx';
+// import AddSong from './AddSong.jsx';
+// import SongCard from './components/SongCard.jsx';
 
 import Home from './routes/Home';
 import Artists from './routes/Artists';

@@ -53,7 +53,8 @@ function Add() {
 
     return (
         <>
-            <h2>Añadir y gestionar canciones</h2>
+            <h2>GESTIÓN DE CANCIONES</h2>
+            <p>Lista completa de canciones y sus controles.</p>
 
             <button className="btnAdd" onClick={handleOpen}>Nueva canción</button>
 

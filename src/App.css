@@ -133,6 +133,19 @@ nav ul li a:hover::before {
 
 /* -- HEADER TEXT -- */
 
+h1 {
+  margin-bottom: 0px;
+}
+
+.main-h1 {
+  font-size: 5em;
+  margin-top: 100px;
+  color: #fff;
+  font-style: italic;
+
+  text-align: center;
+}
+
 .header-title {
   text-align: left;
   margin-top: 60px;
@@ -172,6 +185,14 @@ nav ul li a:hover::before {
   flex-direction: column;
   align-items: start;
   justify-content: initial;
+}
+
+.song-details h3 {
+  text-transform: uppercase;
+}
+
+.song-details span {
+  font-weight: bold;
 }
 
 
@@ -280,4 +301,21 @@ nav ul li a:hover::before {
 
 .inactive {
   display: none;
+}
+
+
+/* -- ANIMACIÓN -- */
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.rotate {
+  display: inline-block;
+  animation: rotation 15s infinite linear;
 }

@@ -11,7 +11,8 @@ function Artists({ filteredSongs, currentPlaying, handlePlay, songs }) {
 
   return (
     <div>
-      <h1>Artistas</h1>
+      <h1><span className="rotate">⚛</span> ARTISTAS <span className="rotate">⚛</span></h1>
+      <p>Consulta las canciones de tus cantantes favoritos.</p>
 
       <input className="search-bar"
         type="text"

@@ -20,8 +20,8 @@ const SongCard = ({ song, handlePlay, currentPlaying }) => {
       </div>
       <div className="song-details">
         <h3>{title}</h3>
-        <p>Artist: {artistName}</p>
-        <p>Genre: {genre}</p>
+        <p><span>Artista</span> ▸ {artistName}</p>
+        <p><span>Género</span> ▸ {genre}</p>
       </div>
     </div>
   );
