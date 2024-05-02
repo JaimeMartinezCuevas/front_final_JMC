@@ -27,7 +27,7 @@ function App({ searchTerm }) {
 
   const getSongs = async () => {
     try {
-      const response = await axios.get('http://back-final-jmc.onrender.com/songs');
+      const response = await axios.get('https://back-final-jmc.onrender.com/songs');
       setSongs(response.data);
     } catch (error) {
       console.error('Error fetching songs:', error);
