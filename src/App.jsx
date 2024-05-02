@@ -13,11 +13,17 @@ import Artists from './routes/Artists';
 import Genre from './routes/Genre';
 import Add from './routes/Add';
 
-function App() {
+function App({ searchTerm }) {
   const [open, setOpen] = useState(false);
   const [songs, setSongs] = useState([]);
   //ID del video reproduciéndose
-  const [currentPlaying, setCurrentPlaying] = useState(null); 
+  const [currentPlaying, setCurrentPlaying] = useState(null);
+
+  const getFilteredSongs = (searchTerm) => {
+    return searchTerm
+      ? songs.filter(song => song.artistName.toLowerCase().includes(searchTerm.toLowerCase()))
+      : songs;
+  };
 
   const getSongs = async () => {
     try {
@@ -27,7 +33,7 @@ function App() {
       console.error('Error fetching songs:', error);
     }
   };
-  
+
   useEffect(() => {
     getSongs();
   }, []);
@@ -43,7 +49,7 @@ function App() {
           <nav>
             <ul>
               <a href="#main">
-              <img src="../public/img/logov2.png" alt="Imagotipo" />
+              <img src="../img/logov2.png" alt="Imagotipo" />
               </a>
               <li>
                 <Link to="/">Inicio</Link>
@@ -61,30 +67,30 @@ function App() {
           </nav>
 
           <Routes>
-            <Route className="route-link" path="/" element={<Home />} />
-            <Route className="route-link" path="/artists" element={<Artists />} />
-            <Route className="route-link" path="/genre" element={<Genre />} />
+            <Route className="route-link" path="/" element={<Home songs={songs} handlePlay={handlePlay} currentPlaying={currentPlaying} />} />
+            <Route className="route-link" path="/artists" element={<Artists filteredSongs={getFilteredSongs} handlePlay={handlePlay} currentPlaying={currentPlaying} songs={songs} />} />            
+            <Route className="route-link" path="/genre" element={<Genre songs={songs} handlePlay={handlePlay} currentPlaying={currentPlaying} />} />            
             <Route className="route-link" path="/add" element={<Add />} />
           </Routes>
         </div>
       </Router>
 
-      <div className="song-list">
-        {songs.map(song => (
+      {/* <div className="song-list">
+        {getFilteredSongs().map(song => (
           <SongCard key={song._id} song={song} handlePlay={handlePlay} currentPlaying={currentPlaying} />
         ))}
-      </div>
+      </div> */}
 
-      <div className='currently-playing-container'>
+      {/* <div className='currently-playing-container'>
         {currentPlaying && (
           <div className="currently-playing">
             <h3>{songs.find(song => song.videoId === currentPlaying)?.title}</h3>
-            <p>Autor: {songs.find(song => song.videoId === currentPlaying)?.author}</p>
-            <img src={`https://img.youtube.com/vi/${currentPlaying}/0.jpg`} alt="Miniatura del vídeo" />
+            <h4>{songs.find(song => song.videoId === currentPlaying)?.artistName}</h4>
+            <img className="playing" src="https://media.tenor.com/GqAwMt01UXgAAAAj/cd.gif" alt="" />
+            <img className='mini-thumbnail' src={`https://img.youtube.com/vi/${currentPlaying}/0.jpg`} alt="Miniatura del vídeo" />
           </div>
         )}
-      </div>
-
+      </div> */}
     </>
   );
 }

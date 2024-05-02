@@ -55,7 +55,7 @@ function Add() {
         <>
             <h2>Añadir y gestionar canciones</h2>
 
-            <button className="btnAdd" onClick={handleOpen}>Add song</button>
+            <button className="btnAdd" onClick={handleOpen}>Nueva canción</button>
 
             <PopupForm open={open} onClose={handleClose} />
 
