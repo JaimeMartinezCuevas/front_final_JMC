@@ -28,7 +28,7 @@ function PopupForm({ open, onClose, song = null }) {
 
     async function saveSong() {
         try {
-            await axios.post('http://localhost:3000/songs', { title, link, artistName, genre, year });
+            await axios.post('http://back-final-jmc.onrender.com/songs', { title, link, artistName, genre, year });
             onClose();
         } catch (error) {
             alert('An error occurred while adding the song: ' + error);
@@ -39,7 +39,7 @@ function PopupForm({ open, onClose, song = null }) {
     async function updateSong() {
         try {
             console.log("Entro a la funcion de actualizar la cancion");
-            await axios.put(`http://localhost:3000/songs/${id}`, { title, link, artistName, genre, year });
+            await axios.put(`http://back-final-jmc.onrender.com/songs/${id}`, { title, link, artistName, genre, year });
             console.log("Se actualizo la cancion");
             onClose();
         } catch (error) {
@@ -50,7 +50,7 @@ function PopupForm({ open, onClose, song = null }) {
     // Funcion para cargar los datos de la canción a editar
     async function loadSong() {
         try {
-            const { data } = await axios.get(`http://localhost:3000/songs/${song}`);
+            const { data } = await axios.get(`http://back-final-jmc.onrender.com/songs/${song}`);
             setId(data._id);
             setTitle(data.title);
             setLink(data.link);

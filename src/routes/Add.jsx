@@ -20,14 +20,14 @@ function Add() {
   
     //Importamos las canciones desde la bd
     const getSongs = async () => {
-      const res = await fetch('http://localhost:3000/songs');
+      const res = await fetch('http://back-final-jmc.onrender.com/songs');
       const data = await res.json();
       setSongs(data);
     }
   
     //Eliminamos una canción por su id
     const deleteSong = async (id) => {
-      await fetch(`http://localhost:3000/songs/${id}`, {
+      await fetch(`http://back-final-jmc.onrender.com/songs/${id}`, {
         method: 'DELETE'
       });
       getSongs();

@@ -11,7 +11,7 @@ export default function AddSong() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('http://localhost:3000/songs', { title, link, artistName, genre, year });
+            await axios.post('http://back-final-jmc.onrender.com/songs', { title, link, artistName, genre, year });
             alert('Song added successfully');
         } catch (error) {
             alert('An error occurred while adding the song: ' + error);
