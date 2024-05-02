@@ -270,7 +270,7 @@ h1 {
 /* -- BARRA DE BÚSQUEDA -- */
 
 .search-bar {
-  width: 100%;
+  width: 95%;
   margin-bottom: 30px;
 
   padding: 10px;
@@ -318,4 +318,5 @@ h1 {
 .rotate {
   display: inline-block;
   animation: rotation 15s infinite linear;
+  line-height: 25px;
 }
