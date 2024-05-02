@@ -3,8 +3,9 @@ import YouTube from 'react-youtube';
 
 const SongCard = ({ song, handlePlay, currentPlaying }) => {
   
+  song.videoId = getYoutubeVideoId(song.link);
+  
   const { _id, title, link, artistName, genre, videoId } = song;
-  song.videoId = getYoutubeVideoId(link);
   
   //console.log("videoId:", videoId);
 
