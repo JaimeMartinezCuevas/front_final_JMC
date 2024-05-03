@@ -10,8 +10,8 @@ const NowPlayingContainer = ({ currentPlayingSong }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 const styles = {
   container: {
@@ -33,6 +33,6 @@ const styles = {
     width: '100px',
     height: '56px',
   },
-};
+}
 
-export default NowPlayingContainer;
+export default NowPlayingContainer

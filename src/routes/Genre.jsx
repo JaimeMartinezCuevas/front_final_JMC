@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import SongCard from '../components/SongCard';
 
 function Genre({ songs, handlePlay, currentPlaying }) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('')
 
   const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+    setSearchTerm(event.target.value)
   };
 
-  const filteredSongs = songs.filter(song => song.genre.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredSongs = songs.filter(song => song.genre.toLowerCase().includes(searchTerm.toLowerCase()))
 
   return (
     <div>
@@ -44,7 +44,7 @@ function Genre({ songs, handlePlay, currentPlaying }) {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default Genre;
+export default Genre

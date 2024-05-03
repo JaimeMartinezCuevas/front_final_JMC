@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
-import Table from '../components/Table.jsx'
-import PopupForm from '../components/PopupForm.jsx'
+import Table from '../components/Table.jsx';
+import PopupForm from '../components/PopupForm.jsx';
 
 function Add() {
 
@@ -11,45 +11,47 @@ function Add() {
     const [editingSong, setEditingSong] = useState(null);
   
     const handleOpen = () => {
-      setOpen(true);
+      setOpen(true)
     };
+
     const handleClose = () => {
-      getSongs();
-      setOpen(false);
+      getSongs()
+      setOpen(false)
     };
   
     //Importamos las canciones desde la bd
     const getSongs = async () => {
-      const res = await fetch('https://back-final-jmc.onrender.com/songs');
-      const data = await res.json();
-      setSongs(data);
+      const res = await fetch('https://back-final-jmc.onrender.com/songs')
+      const data = await res.json()
+      setSongs(data)
     }
   
     //Eliminamos una canción por su id
     const deleteSong = async (id) => {
-      await fetch(`https://back-final-jmc.onrender.com/songs/${id}`, {
+      await fetch(`https://back-final-jmc.onrender.com/songs/${id}`,
+      {
         method: 'DELETE'
-      });
-      getSongs();
+      })
+      getSongs()
     }
   
     const onEdit = (id) => {
-      console.log('Edit', id);
-      setEditingSong(id);
+      console.log('Edit', id)
+      setEditingSong(id)
     }
   
     const onDelete = (id) => {
-      console.log('Delete', id);
-      deleteSong(id);
+      console.log('Delete', id)
+      deleteSong(id)
     }
   
     useEffect(() => {
-      getSongs();
-    }, []);
+      getSongs()
+    }, [])
   
     useEffect(() => {
-      getSongs();
-    }, [editingSong]);
+      getSongs()
+    }, [editingSong])
 
     return (
         <>

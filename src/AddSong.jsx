@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 export default function AddSong() {
-    const [title, setTitle] = useState('');
-    const [link, setLink] = useState('');
-    const [artistName, setArtistName] = useState('');
-    const [genre, setGenre] = useState('');
-    const [year, setYear] = useState('');
+    const [title, setTitle] = useState('')
+    const [link, setLink] = useState('')
+    const [artistName, setArtistName] = useState('')
+    const [genre, setGenre] = useState('')
+    const [year, setYear] = useState('')
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
+        event.preventDefault()
         try {
-            await axios.post('https://back-final-jmc.onrender.com/songs', { title, link, artistName, genre, year });
-            alert('Song added successfully');
+            await axios.post('https://back-final-jmc.onrender.com/songs', { title, link, artistName, genre, year })
+            alert('Song added successfully')
         } catch (error) {
-            alert('An error occurred while adding the song: ' + error);
+            alert('An error occurred while adding the song: ' + error)
         }
-    };
+    }
 
     return (
         <>
@@ -31,5 +31,5 @@ export default function AddSong() {
             </form>
         </>
 
-    );
-};
+    )
+}

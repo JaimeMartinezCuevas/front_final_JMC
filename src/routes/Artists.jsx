@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import SongCard from '../components/SongCard';
+// import axios from 'axios';
 
 function Artists({ filteredSongs, currentPlaying, handlePlay, songs }) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('')
 
   const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+    setSearchTerm(event.target.value)
+  }
 
   return (
     <div>
@@ -43,7 +43,7 @@ function Artists({ filteredSongs, currentPlaying, handlePlay, songs }) {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default Artists;
+export default Artists

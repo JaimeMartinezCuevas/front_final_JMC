@@ -46,8 +46,7 @@ function SongsTable({ songs, onEdit, onDelete }) {
                                                 );
                                             }
                                         } catch (error) {
-                                            // Si el enlace no es una URL válida o no es un enlace de YouTube, 
-                                            // simplemente devolvemos el enlace original
+                                            //Si el enlace no es una URL válida o no es un enlace de YouTube, simplemente devolvemos el enlace original
                                             return (
                                                 <a href={score.link} target="_blank" rel="noopener noreferrer">
                                                     {score.link}
@@ -102,4 +101,4 @@ SongsTable.propTypes = {
     onDelete: PropTypes.func,
 };
 
-export default SongsTable;
+export default SongsTable

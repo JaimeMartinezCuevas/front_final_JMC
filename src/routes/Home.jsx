@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import SongCard from '../components/SongCard';
 
 function Home({ songs, handlePlay, currentPlaying }) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('')
 
   const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+    setSearchTerm(event.target.value)
   };
 
   const filteredSongs = songs.filter(song =>
     song.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  )
 
   return (
     <>
@@ -49,7 +49,7 @@ function Home({ songs, handlePlay, currentPlaying }) {
         )}
       </div>
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home

@@ -2,7 +2,7 @@ import { Autocomplete, Card, CardContent, CardActions, Typography, Divider, Form
 import { Dialog } from '@mui/material';
 import { EditOutlined, MusicNote, InfoOutlined, CalendarMonthRounded, PianoRounded, DriveFileRenameOutlineRounded, AttachFile } from '@mui/icons-material';
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import axios from 'axios';
 
 function PopupForm({ open, onClose, song = null }) {
@@ -25,7 +25,6 @@ function PopupForm({ open, onClose, song = null }) {
         width: 1px;
         `;
 
-
     async function saveSong() {
         try {
             await axios.post('https://back-final-jmc.onrender.com/songs', { title, link, artistName, genre, year });
@@ -35,7 +34,7 @@ function PopupForm({ open, onClose, song = null }) {
         }
     }
 
-    // Funcion para actualizar una canción
+    //Funcion pa actualizar canciónes
     async function updateSong() {
         try {
             console.log("Entro a la funcion de actualizar la cancion");
@@ -47,7 +46,7 @@ function PopupForm({ open, onClose, song = null }) {
         }
     }
 
-    // Funcion para cargar los datos de la canción a editar
+    //Funcion para cargar los datos de les canciones
     async function loadSong() {
         try {
             const { data } = await axios.get(`https://back-final-jmc.onrender.com/songs/${song}`);
@@ -228,4 +227,4 @@ PopupForm.propTypes = {
     song: PropTypes.string,
 };
 
-export default PopupForm;
+export default PopupForm

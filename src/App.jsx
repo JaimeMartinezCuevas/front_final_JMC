@@ -1,46 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import './App.css'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // import AddSong from './AddSong.jsx';
 // import SongCard from './components/SongCard.jsx';
 
-import Home from './routes/Home';
-import Artists from './routes/Artists';
-import Genre from './routes/Genre';
-import Add from './routes/Add';
+import Home from './routes/Home'
+import Artists from './routes/Artists'
+import Genre from './routes/Genre'
+import Add from './routes/Add'
 
 function App({ searchTerm }) {
-  const [open, setOpen] = useState(false);
-  const [songs, setSongs] = useState([]);
+  const [open, setOpen] = useState(false)
+  const [songs, setSongs] = useState([])
   //ID del video reproduciéndose
-  const [currentPlaying, setCurrentPlaying] = useState(null);
+  const [currentPlaying, setCurrentPlaying] = useState(null)
 
   const getFilteredSongs = (searchTerm) => {
     return searchTerm
       ? songs.filter(song => song.artistName.toLowerCase().includes(searchTerm.toLowerCase()))
       : songs;
-  };
+  }
 
   const getSongs = async () => {
     try {
-      const response = await axios.get('https://back-final-jmc.onrender.com/songs');
-      setSongs(response.data);
+      const response = await axios.get('https://back-final-jmc.onrender.com/songs')
+      setSongs(response.data)
     } catch (error) {
-      console.error('Error fetching songs:', error);
+      console.error('Error fetching songs:', error)
     }
-  };
+  }
 
   useEffect(() => {
-    getSongs();
-  }, []);
+    getSongs()
+  }, [])
 
   const handlePlay = (videoId) => {
-    setCurrentPlaying(videoId);
-  };
+    setCurrentPlaying(videoId)
+  }
 
   return (
     <>
@@ -92,7 +92,7 @@ function App({ searchTerm }) {
         )}
       </div> */}
     </>
-  );
+  )
 }
 
-export default App;
+export default App
