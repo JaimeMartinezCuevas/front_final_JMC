@@ -80,7 +80,7 @@ Será acompañado de las explicaciones pertinentes en cada caso.
 
 - **CSS**: Empleado para dar estilos a la página y gestionar la interacción (botones, flexbox, efectos hover, etc.)
 
-- **HTML**: Empleado para crear la estructura general a través de literl templates y para los formularios de edición y eliminación de productos.
+- **HTML**: Empleado para crear la estructura general a través de literl templates.
 
 
 ## Creación de la estructura y conexión con la base de datos
